@@ -1,0 +1,27 @@
+[tool.poetry]
+authors = ["TODO <todo@email.com>"]
+name = "openrelik-worker-kustoingest"
+version = "0.1.0"
+description = "Kust Ingestor"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+celery = { extras = ["redis"], version = "^5.4.0" }
+openrelik-common = "^0.7.0"
+openrelik-worker-common = "^0.11.0"
+PyYAML ="^6.0.3"
+pathvalidate = "^3.3.1"
+pandas= "^2.3.3"
+azure-kusto-data = "^5.0.5"
+azure-kusto-ingest = "^5.0.5"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+pytest-cov = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
