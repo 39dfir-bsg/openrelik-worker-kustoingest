@@ -8,8 +8,7 @@ Streaming supports 10MB per chunk, .csv files larger than 10MB are split up into
 
 Supports an `.openrelik-config` files.
 
-# TODO:
-Supply an `.openrelik-config` file to this worker with an `openrelik-kusto-cluster-uri:` argument to use for the kusto cluster location. If you're running an extract from an archive task before this, place your `.openrelik-config` file in an archive (eg. `openrelik-config.zip`) and add globs for it (`*.openrelik-config`) to your extract from archive task.
+Supply an `.openrelik-config` file to this worker with an `openrelik-kusto-cluster-uri:` argument to use for the kusto cluster uri and a `openrelik-kusto-database:` argument to use for a database. If you're running an extract from an archive task before this, place your `.openrelik-config` file in an archive (eg. `openrelik-config.zip`) and add globs for it (`*.openrelik-config`) to your extract from archive task.
 
 ## Deploy
 Update your `config.env` file to set `OPENRELIK_WORKER_KUSTOINGEST_VERSION` to the tagged release version you want to use.
