@@ -135,6 +135,12 @@ def _ingest_data_via_streaming(kusto_ingest_client, database, table_name, ingest
             print("✅ Ingesting data")
             return True
         except Exception as e:
+            # don't retry if due to table issues
+            error_text = str(e)
+            if "Wrong number of fields inside the input stream" in error_text:
+                print(f"❌ Unrecoverable chunk, data lost - if this has happened a lot, ingest manually (or manually create table schema): {e}")
+                return False
+
             print(f"⚠️ Attempt {attempt}/{max_retries} failed: {e}")
             if attempt < max_retries:
                 time.sleep(retry_delay)

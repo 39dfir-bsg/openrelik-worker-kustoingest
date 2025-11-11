@@ -161,6 +161,7 @@ def kustoingest(
             try:
                 kusto_client.execute_mgmt(database, create_table_command)
                 print("✅ Table create command issued")
+                print(f"   Create table command: {create_table_command}")
             except Exception as e:
                 # TODO: check error type and handle properly
                 # Assume error is because database isn't attached after reboot
