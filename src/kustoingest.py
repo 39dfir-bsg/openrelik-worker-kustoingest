@@ -118,8 +118,10 @@ def kustoingest(
             logger.error(f"Error reading .openrelik-config: {e}")
     
     # Override database and uri if provided
-    database = task_config.get("database_override", None)
-    cluster = task_config.get("connection_override", None)
+    if task_config.get("database_override", None):
+        database = task_config.get("database_override", None)
+    if task_config.get("connection_override", None):
+        cluster = task_config.get("connection_override", None)
 
     # No auth (for internal or test setups)
     kcsb = KustoConnectionStringBuilder.with_no_authentication(cluster)
